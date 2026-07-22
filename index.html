@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Attendance Tracking System</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="py-3 px-4 md:px-8 flex justify-between items-center bg-white shadow-sm">
+    <div class="flex items-center">
+    <img
+        src="https://cdn-icons-png.flaticon.com/512/3068/3068641.png" 
+        alt="AttendTrack Logo" 
+        class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
+    <h2 class="ml-2 mb-0 font-bold text-gray-800 text-lg md:text-xl">AttendTrack</h2>
+    </div>
+    <div class="flex gap-2">
+    <button id="signupBtn" class="btn btn-outline-primary flex items-center gap-1 text-sm md:text-base">
+        <span class="hidden md:inline">Sign Up</span>
+    </button>
+    <button id="loginBtn" class="btn btn-primary flex items-center gap-1 text-sm md:text-base">
+        <span class="hidden md:inline">Login</span>
+    </button>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="py-12 md:py-20 px-4 bg-gradient-to-r from-green-50 to-teal-50 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full opacity-10">
+        <div class="float absolute top-20 right-10 w-24 h-24 rounded-full bg-green-500"></div>
+        <div class="float absolute top-40 right-32 w-16 h-16 rounded-full bg-teal-500"></div>
+        <div class="float absolute top-60 right-20 w-20 h-20 rounded-full bg-green-400"></div>
+    </div>
+    <div class="container mx-auto flex flex-col md:flex-row items-center relative z-10">
+        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+        <p class="text-green-600 font-medium mb-2 fade-in-up" style="animation-delay: 0.1s">Student Attendance</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 fade-in-up" style="animation-delay: 0.2s">
+            Track<br>Student<br>Attendance
+        </h1>
+        <p class="text-lg text-gray-600 mb-6 fade-in-up" style="animation-delay: 0.3s">
+            Simplify attendance tracking with our intuitive student portal. Monitor attendance, 
+            generate reports, and improve student engagement effortlessly. Start today!
+        </p>
+        <!-- Get Started button removed as per requirements -->
+        </div>
+        
+        <div class="md:w-1/2">
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h4 class="text-center mb-3 font-bold text-gray-800">Welcome to Check-In</h4>
+            <p class="text-center text-gray-600 mb-4">Login to access your personalized dashboard and attendance insights.</p>
+            <form id="loginForm">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-1">
+                Username
+                </label>
+                <input
+                id="username"
+                type="text"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+                >
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
+                Password
+                </label>
+                <div class="relative">
+                <input
+                    id="password"
+                    type="password"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    required
+                >
+                <button
+                    type="button"
+                    id="togglePassword"
+                    class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                    👁️
+                </button>
+                </div>
+            </div>
+            <button 
+                type="submit"
+                class="btn btn-primary"
+            >
+                Login
+            </button>
+            <div class="text-center mt-3">
+                <a href="#" class="text-green-600 hover:text-green-800 text-sm">
+                Forgot Password?
+                </a>
+            </div>  
+            </form>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mx-auto py-12 px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-2 bg-yellow-100 fade-in-up" style="animation-delay: 0.1s">
+        <div class="flex flex-col items-center text-center">
+            <div class="text-4xl mb-3 text-yellow-600 float">📊</div>
+            <h5 class="text-lg font-semibold mb-2">Easy Tracking</h5>
+            <p class="text-gray-700">Track attendance with real-time updates.</p>
+        </div>
+        </div>
+
+        <div class="p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-2 bg-yellow-200 fade-in-up" style="animation-delay: 0.2s">
+        <div class="flex flex-col items-center text-center">
+            <div class="text-4xl mb-3 text-yellow-600 float">⚡</div>
+            <h5 class="text-lg font-semibold mb-2">Quick Access</h5>
+            <p class="text-gray-700">Get info in just a few clicks.</p>
+        </div>
+        </div>
+
+        <div class="p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-2 bg-green-200 fade-in-up" style="animation-delay: 0.3s">
+        <div class="flex flex-col items-center text-center">
+            <div class="text-4xl mb-3 text-green-600 float">🔒</div>
+            <h5 class="text-lg font-semibold mb-2">Secure Login</h5>
+            <p class="text-gray-700">Personalized and protected access.</p>
+        </div>
+        </div>
+
+        <div class="p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-2 bg-green-100 fade-in-up" style="animation-delay: 0.4s">
+        <div class="flex flex-col items-center text-center">
+            <div class="text-4xl mb-3 text-green-600 float">🔔</div>
+            <h5 class="text-lg font-semibold mb-2">Notifications</h5>
+            <p class="text-gray-700">Stay updated instantly.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 text-white bg-cover bg-center" 
+    style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80')">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+            <h2 class="text-3xl font-bold mb-4">About AttendTrack</h2>
+            <p class="mb-4 fade-in-up" style="animation-delay: 0.1s">
+            AttendTrack is a modern, intuitive student attendance management system designed to simplify 
+            attendance tracking for educational institutions. Our platform provides real-time monitoring, 
+            insightful analytics, and seamless reporting capabilities.
+            </p>
+            <p class="mb-4 fade-in-up" style="animation-delay: 0.2s">
+            Built with educators and students in mind, AttendTrack offers a user-friendly interface that 
+            makes attendance management effortless. From daily check-ins to comprehensive reports, 
+            everything is just a click away.
+            </p>
+            <p class="fade-in-up" style="animation-delay: 0.3s">
+            Our system ensures data privacy and security while providing robust features that enhance 
+            the educational experience for everyone involved.
+            </p>
+        </div>
+        <div class="md:w-1/2">
+            <img 
+            src="https://images.unsplash.com/photo-1580584126903-c17d41830450?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
+            alt="Education Image" 
+            class="w-full h-auto rounded-lg border-4 border-white shadow-lg transform transition-transform duration-500 hover:scale-105" 
+            >
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="section-title">
+        <h2>What Our Students Say</h2>
+        <p>Hear from students who are already using AttendTrack to manage their attendance</p>
+        </div>
+        
+        <div class="relative max-w-3xl mx-auto">
+        <div class="overflow-hidden">
+            <div id="testimonialSlider" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Testimonials will be inserted here by JavaScript -->
+            </div>
+        </div>
+        
+        <button id="prevTestimonial" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-8 bg-white rounded-full p-2 shadow-md focus:outline-none">
+            ←
+        </button>
+        
+        <button id="nextTestimonial" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-8 bg-white rounded-full p-2 shadow-md focus:outline-none">
+            →
+        </button>
+        
+        <div id="testimonialDots" class="flex justify-center mt-6">
+            <!-- Dots will be inserted here by JavaScript -->
+        </div>
+        </div>
+    </div>
+    </section>
+    <!-- Location Section -->
+    <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="section-title">
+        <h2>Find Us</h2>
+        <p>Visit our campus and see how AttendTrack can transform your educational experience</p>
+        </div>
+        
+        <div class="relative mx-auto max-w-4xl">
+        <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
+            <iframe
+            src="https://maps.google.com/maps?q=educational%20institution&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Generic Educational Institution Location"
+            class="w-full h-full"
+            ></iframe>
+        </div>
+        
+        <div class="absolute top-8 right-8 bg-black bg-opacity-85 text-white py-3 px-6 rounded-lg shadow-md text-xl font-bold">
+            Generic University
+        </div>
+        </div>
+    </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+        <h5 class="text-xl font-bold mb-4">Contact Us</h5>
+        <p class="mb-2">Email: info@attendtrack.edu</p>
+        <p>Phone: 123-456-7890</p>
+        </div>
+        
+        <div>
+        <h5 class="text-xl font-bold mb-4">About</h5>
+        <p>
+            AttendTrack is a digital platform designed for students to manage their attendance seamlessly.
+            Track your attendance records, view reports, and stay up-to-date with your academic progress.
+        </p>
+        </div>
+        
+        <div>
+        <h5 class="text-xl font-bold mb-4">Follow Us</h5>
+        <div class="flex space-x-4 mb-4">
+            <a href="#" class="hover:text-blue-400 transition-colors duration-200">Facebook</a>
+            <a href="#" class="hover:text-red-400 transition-colors duration-200">YouTube</a>
+            <a href="#" class="hover:text-blue-300 transition-colors duration-200">Twitter</a>
+        </div>
+        <p>All Rights Reserved © <span id="currentYear"></span></p>
+        </div>
+    </div>
+    
+    <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a 
+        href="#" 
+        class="bg-white text-gray-900 hover:bg-gray-200 px-6 py-2 rounded-full font-medium transition-colors duration-200"
+        >
+        Download for PC
+        </a>
+        <a 
+        href="#" 
+        class="bg-white text-gray-900 hover:bg-gray-200 px-6 py-2 rounded-full font-medium transition-colors duration-200"
+        >
+        Download for Mobile
+        </a>
+    </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

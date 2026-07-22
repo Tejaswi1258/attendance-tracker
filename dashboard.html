@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AttendTrack - Student Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="dashboard-container">
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-logo">
+    <img 
+        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&h=120&q=80" 
+        alt="AttendTrack Logo" 
+        class="college-logo"
+    >
+    <h2 class="logo-text">AttendTrack</h2>
+    </div>
+    
+    <nav>
+    <ul>
+        <li class="nav-item active" data-page="dashboard">
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+        </li>
+        <li class="nav-item" data-page="profile">
+        <span class="nav-icon">👤</span>
+        <span>My Profile</span>
+        </li>
+        <li class="nav-item" data-page="attendance">
+        <span class="nav-icon">📅</span>
+        <span>Attendance</span>
+        </li>
+        <li class="nav-item" data-page="reports">
+        <span class="nav-icon">📄</span>
+        <span>Reports</span>
+        </li>
+        <li class="nav-item" data-page="leaves">
+        <span class="nav-icon">⏰</span>
+        <span>Leaves</span>
+        </li>
+        <li class="nav-item" data-page="settings">
+        <span class="nav-icon">⚙️</span>
+        <span>Settings</span>
+        </li>
+        <li class="nav-item" data-page="help">
+        <span class="nav-icon">❓</span>
+        <span>Help</span>
+        </li>
+        <li class="nav-item" data-page="contact">
+        <span class="nav-icon">✉️</span>
+        <span>Contact</span>
+        </li>
+    </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+    <a href="index.html" class="logout-button">
+        <span class="nav-icon">🚪</span>
+        <span>Logout</span>
+    </a>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="content">
+    <header class="topbar">
+    <div class="student-info">
+        <h2 class="student-name">Loading user info...</h2>
+    </div>
+    <div class="profile-section">
+        <button id="themeToggle" class="theme-toggle">
+        <span class="light-icon">🌞</span>
+        <span class="dark-icon">🌙</span>
+        </button>
+        <div class="profile-badge">
+        <img 
+            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" 
+            alt="Profile" 
+            class="profile-image-small"
+        >
+        <span class="profile-name-small">John</span>
+        </div>
+    </div>
+    </header>
+
+    <!-- Dashboard Page -->
+    <section id="dashboard" class="page active">
+    <div class="mb-6">
+        <div class="card slide-in-left">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <div>
+            <h3 class="mb-2">Attendance Overview</h3>
+            <p class="text-sm text-gray-600">Your current attendance statistics and trends</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+            <button class="btn btn-outline-primary btn-sm">Export Report</button>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <!-- Statistics Card -->
+            <div class="card bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 border border-green-200 dark:border-green-700 rounded-xl">
+            <div class="flex items-center">
+                <div class="mr-4">
+                <div class="attendance-chart">
+                    <div class="circle-progress">
+                    <span class="percentage">82%</span>
+                    </div>
+                </div>
+                </div>
+                <div>
+                <h4 class="font-medium text-green-800 dark:text-green-200">Overall Attendance</h4>
+                <p class="text-sm text-green-700 dark:text-green-300">Above minimum requirement</p>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Classes Summary -->
+            <div class="card bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border border-blue-200 dark:border-blue-700 rounded-xl">
+            <div class="flex justify-between items-center">
+                <div>
+                <div class="text-2xl font-bold text-blue-800 dark:text-blue-200">120</div>
+                <div class="text-sm text-blue-700 dark:text-blue-300">Total Classes</div>
+                </div>
+                <div class="text-right">
+                <div class="text-2xl font-bold text-green-600">98</div>
+                <div class="text-sm text-green-700">Attended</div>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="card bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 border border-purple-200 dark:border-purple-700 rounded-xl">
+            <div class="flex justify-between items-center">
+                <div>
+                <div class="text-2xl font-bold text-purple-800 dark:text-purple-200">4</div>
+                <div class="text-sm text-purple-700 dark:text-purple-300">Classes Today</div>
+                </div>
+                <div class="text-right">
+                <div class="text-2xl font-bold text-yellow-600">1</div>
+                <div class="text-sm text-yellow-700">Late</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="card bg-green-50 dark:bg-green-900 text-center">
+            <div class="text-2xl font-bold text-green-600">50</div>
+            <div class="text-sm text-green-700">Days Present</div>
+            </div>
+            <div class="card bg-red-50 dark:bg-red-900 text-center">
+            <div class="text-2xl font-bold text-red-600">8</div>
+            <div class="text-sm text-red-700">Days Absent</div>
+            </div>
+            <div class="card bg-yellow-50 dark:bg-yellow-900 text-center">
+            <div class="text-2xl font-bold text-yellow-600">4</div>
+            <div class="text-sm text-yellow-700">Days Late</div>
+            </div>
+            <div class="card bg-purple-50 dark:bg-purple-900 text-center">
+            <div class="text-2xl font-bold text-purple-600">60</div>
+            <div class="text-sm text-purple-700">Total Days</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Daily Attendance -->
+    <div class="card slide-in-left" id="daily-attendance">
+        <div class="header flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+        <div>
+            <h3 class="mb-2">Daily Attendance</h3>
+            <p class="text-sm text-gray-600">View your attendance records for a specific date</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <label for="attendance-date" class="text-sm font-medium text-gray-700">Select Date:</label>
+            <input type="date" id="attendance-date" class="calendar-btn" aria-label="Select date for attendance view" />
+        </div>
+        </div>
+        
+        <div class="attendance-summary bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-4 flex flex-wrap gap-4">
+        <div class="flex items-center">
+            <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+            <span class="text-sm">Present: <span id="present-count" class="font-medium">0</span></span>
+        </div>
+        <div class="flex items-center">
+            <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+            <span class="text-sm">Absent: <span id="absent-count" class="font-medium">0</span></span>
+        </div>
+        <div class="flex items-center">
+            <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+            <span class="text-sm">Late: <span id="late-count" class="font-medium">0</span></span>
+        </div>
+        <div class="flex items-center">
+            <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+            <span class="text-sm">Total: <span id="total-count" class="font-medium">0</span></span>
+        </div>
+        </div>
+        
+        <div class="attendance-list overflow-x-auto">
+        <table class="min-w-full border-collapse">
+            <thead>
+            <tr class="bg-gray-100 dark:bg-gray-700">
+                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Time</th>
+                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Subject</th>
+                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Status</th>
+                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Remarks</th>
+            </tr>
+            </thead>
+            <tbody id="attendance-table-body" class="divide-y divide-gray-200 dark:divide-gray-700">
+            <!-- Rows will be populated by JS -->
+            </tbody>
+        </table>
+        </div>
+        
+        <div class="mt-4 text-sm text-gray-600 dark:text-gray-400 flex flex-wrap gap-4">
+        <div class="flex items-center">
+            <span class="mr-2">Legend:</span>
+            <span class="inline-flex items-center mr-3">
+            <span class="status-badge present mr-1">Present</span>
+            </span>
+            <span class="inline-flex items-center mr-3">
+            <span class="status-badge absent mr-1">Absent</span>
+            </span>
+            <span class="inline-flex items-center">
+            <span class="status-badge late">Late</span>
+            </span>
+        </div>
+        </div>
+        
+        <div class="mt-4">
+            <button id="exportDailyBtn" class="btn btn-outline-primary btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Export Daily Report
+            </button>
+        </div>
+    </div>
+    
+
+    <!-- Query Form -->
+    <div class="card slide-in-right">
+        <h3>Raise Attendance Query</h3>
+        <form id="queryForm">
+        <div class="form-group">
+            <label for="queryType">Query Type</label>
+            <select id="queryType" required>
+            <option value="">Select query type</option>
+            <option value="wrong">Wrong Attendance</option>
+            <option value="missing">Missing Attendance</option>
+            <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="queryDate">Date</label>
+            <input type="date" id="queryDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="queryDescription">Description</label>
+            <textarea id="queryDescription" required placeholder="Please provide details about your attendance query..."></textarea>
+        </div>
+
+        <button type="submit">Submit Query</button>
+        </form>
+    </div>
+    </section>
+
+    <!-- My Profile Page -->
+    <section id="profile" class="page">
+    <div class="card slide-in-left">
+        <h3>Personal Information</h3>
+        <div class="profile-card">
+        <div class="profile-header">
+            <img 
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" 
+            alt="Profile" 
+            class="profile-image-large"
+            >
+            <h2>Loading user info...</h2>
+            <div class="text-primary-color">Computer Science - Section A</div>
+        </div>
+        
+        <div class="profile-details">
+            <div class="details-grid">
+            <div class="detail-item">
+                <div class="detail-label">Registration Number</div>
+                <div class="detail-value">STU12345</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Branch</div>
+                <div class="detail-value">Computer Science & Engineering</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Section</div>
+                <div class="detail-value">I</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Year/Sem</div>
+                <div class="detail-value">II Year/2nd sem</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Phone Number</div>
+                <span>📱</span>
+                <div class="detail-value">+1 (555) 123-4567</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Email</div>
+                <span>📧</span>
+                <div class="detail-value">john.doe@student.university.edu</div>
+            </div>
+            <div class="detail-item">
+                <span>🩸</span>
+                <div class="detail-label">Blood Group</div>
+                <div class="detail-value">B+</div>
+            </div>
+            <div class="detail-item">
+                <span>📊</span>
+                <div class="detail-label">Overall Attendance</div>
+                <div class="detail-value">82%</div>
+            </div>
+            <div class="detail-item full-width">
+                <span>📍</span>
+                <div class="detail-label">Address</div>
+                <div class="detail-value">123 University Ave, College Town, State 12345</div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="card slide-in-right">
+        <h3>Parent Contact Information</h3>
+        <div class="details-container">
+        <div class="details-row">
+            <div class="details-label">📧Email</div>
+            <div class="details-value">parent.doe@example.com</div>
+        </div>
+        <div class="details-row">
+            <div class="details-label">📱Phone</div>
+            <div class="details-value">+1 (555) 987-6543</div>
+        </div>
+        <div class="details-row">
+            <div class="details-label">📍Address</div>
+            <div class="details-value">123 Main Street, City, State 12345</div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Reports Page -->
+    <section id="reports" class="page">
+    <div class="card">
+        <h3>Subject-wise Attendance</h3>
+        <div class="subject-reports">
+        <div class="subject-report-item">
+            <div class="subject-info">
+            <h4>Computer Science</h4>
+            <div class="attendance-stats">
+                <span>45/50 Classes</span>
+            </div>
+            <div class="attendance-progress-container">
+                <div class="attendance-progress" style="width: 90%"></div>
+                <span class="attendance-value">90%</span>
+            </div>
+            </div>
+        </div>
+        <div class="subject-report-item">
+            <div class="subject-info">
+            <h4>Mathematics</h4>
+            <div class="attendance-stats">
+                <span>38/45 Classes</span>
+            </div>
+            <div class="attendance-progress-container">
+                <div class="attendance-progress" style="width: 85%"></div>
+                <span class="attendance-value">85%</span>
+            </div>
+            </div>
+        </div>
+        <div class="subject-report-item">
+            <div class="subject-info">
+            <h4>Physics</h4>
+            <div class="attendance-stats">
+                <span>36/48 Classes</span>
+            </div>
+            <div class="attendance-progress-container">
+                <div class="attendance-progress" style="width: 75%"></div>
+                <span class="attendance-value">75%</span>
+            </div>
+            </div>
+        </div>
+        <div class="subject-report-item">
+            <div class="subject-info">
+            <h4>Chemistry</h4>
+            <div class="attendance-stats">
+                <span>40/50 Classes</span>
+            </div>
+            <div class="attendance-progress-container">
+                <div class="attendance-progress" style="width: 80%"></div>
+                <span class="attendance-value">80%</span>
+            </div>
+            </div>
+        </div>
+        <div class="subject-report-item">
+            <div class="subject-info">
+            <h4>English</h4>
+            <div class="attendance-stats">
+                <span>38/40 Classes</span>
+            </div>
+            <div class="attendance-progress-container">
+                <div class="attendance-progress" style="width: 95%"></div>
+                <span class="attendance-value">95%</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Attendance Page -->
+    <section id="attendance" class="page">
+    <div class="card">
+        <h3>Attendance Trends</h3>
+        <canvas id="attendanceChart" height="350"></canvas>
+    </div>
+    <div class="card">
+        <h3>Weekly Attendance Overview</h3>
+        <div class="chart-container">
+            <canvas id="weeklyAttendanceChart" height="300"></canvas>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>Monthly Attendance Summary</h3>
+        <div class="monthly-summary-grid">
+            <div class="summary-card">
+                <div class="summary-value text-green-500">82%</div>
+                <div class="summary-label">Overall Attendance</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-value text-blue-500">98</div>
+                <div class="summary-label">Classes Attended</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-value text-red-500">12</div>
+                <div class="summary-label">Classes Missed</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-value text-yellow-500">8</div>
+                <div class="summary-label">Late Arrivals</div>
+            </div>
+        </div>
+        
+        <div class="improvement-tip mt-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+            <h4 class="font-medium text-blue-800 dark:text-blue-200">💡 Improvement Tip</h4>
+            <p class="text-sm text-blue-700 dark:text-blue-300 mt-1">You're doing great! Try to arrive 5 minutes early to improve your punctuality score.</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Leaves Page -->
+    <section id="leaves" class="page">
+    <div class="card">
+        <h3>Leave Patterns</h3>
+        <canvas id="leavesChart" height="350"></canvas>
+    </div>
+    <div class="card">
+        <h3>Leave Balance</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="leave-balance-card">
+            <div class="value text-blue-500">6</div>
+            <div class="label">Sick Leaves</div>
+            <div class="sublabel">8 allowed / 2 used</div>
+        </div>
+        <div class="leave-balance-card">
+            <div class="value text-green-500">4</div>
+            <div class="label">Personal Leaves</div>
+            <div class="sublabel">6 allowed / 2 used</div>
+        </div>
+        <div class="leave-balance-card">
+            <div class="value text-yellow-500">2</div>
+            <div class="label">Emergency Leaves</div>
+            <div class="sublabel">2 allowed / 0 used</div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Settings Page -->
+    <section id="settings" class="page">
+    <div class="card">
+        <h3>Notification Preferences</h3>
+        <div class="setting-toggle">
+        <div>
+            <h4>Email Notifications</h4>
+            <p>Receive updates about your attendance via email</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" checked id="email-notifications" aria-label="Enable email notifications">
+            <span class="toggle-slider"></span>
+        </label>
+        </div>
+
+        <div class="setting-toggle">
+        <div>
+            <h4>SMS Notifications</h4>
+            <p>Receive updates about your attendance via SMS</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" id="sms-notifications" aria-label="Enable SMS notifications">
+            <span class="toggle-slider"></span>
+        </label>
+        </div>
+
+        <div class="setting-toggle">
+        <div>
+            <h4>Auto Dark Mode</h4>
+            <p>Automatically switch to dark mode based on time</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" checked id="auto-dark-mode" aria-label="Enable automatic dark mode">
+            <span class="toggle-slider"></span>
+        </label>
+        </div>
+
+        <div class="setting-toggle">
+        <div>
+            <h4>Data Sharing</h4>
+            <p>Share attendance data with faculty</p>
+        </div>
+        <label class="toggle-switch">
+            <input type="checkbox" id="data-sharing" aria-label="Enable data sharing with faculty">
+            <span class="toggle-slider"></span>
+        </label>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Change Password</h3>
+        <form id="passwordForm" class="password-form">
+        <div class="form-group">
+            <label for="oldPassword">Current Password</label>
+            <input type="password" id="oldPassword" required>
+        </div>
+        <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm New Password</label>
+            <input type="password" id="confirmPassword" required>
+        </div>
+        <button type="submit">Change Password</button>
+        </form>
+    </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+    <div class="card">
+        <h3>Administrator Contacts</h3>
+        <div class="admin-cards">
+        <div class="admin-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" alt="Admin" class="admin-image">
+            <div class="admin-info">
+            <h4>Prof. Smith</h4>
+            <p class="role">Department Head</p>
+            <p class="contact">📧 smith@university.edu</p>
+            <p class="contact">📱 +1 (555) 111-2222</p>
+            </div>
+        </div>
+        <div class="admin-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" alt="Admin" class="admin-image">
+            <div class="admin-info">
+            <h4>Prof. Johnson</h4>
+            <p class="role">Student Coordinator</p>
+            <p class="contact">📧 johnson@university.edu</p>
+            <p class="contact">📱 +1 (555) 333-4444</p>
+            </div>
+        </div>
+        <div class="admin-card">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" alt="Admin" class="admin-image">
+            <div class="admin-info">
+            <h4>Mr. Williams</h4>
+            <p class="role">Attendance Officer</p>
+            <p class="contact">📧 williams@university.edu</p>
+            <p class="contact">📱 +1 (555) 555-6666</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Contact Support</h3>
+        <form id="contactForm">
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+        </form>
+    </div>
+    </section>
+
+    <!-- Help Page -->
+    <section id="help" class="page">
+    <div class="card">
+        <h3>Help Center</h3>
+        <div class="help-content">
+        <div class="help-section">
+            <h4>Getting Started</h4>
+            <p>Welcome to the Student Attendance Portal. This comprehensive system helps you track and manage your attendance across all subjects.</p>
+        </div>
+        
+        <div class="help-section">
+            <h4>Dashboard Overview</h4>
+            <p>The dashboard provides a quick overview of your attendance statistics, including daily attendance records and subject-wise breakdown.</p>
+        </div>
+        
+        <div class="help-section">
+            <h4>Attendance Tracking</h4>
+            <p>Your attendance is automatically recorded for each class. The system uses advanced tracking to ensure accuracy and reliability.</p>
+        </div>
+
+        <div class="faq-section">
+            <h4>Frequently Asked Questions</h4>
+            <div class="faq-item">
+            <h5>How is my attendance percentage calculated?</h5>
+            <p>Attendance is calculated as the ratio of classes attended to total classes held, expressed as a percentage.</p>
+            </div>
+            <div class="faq-item">
+            <h5>What should I do if I notice an attendance discrepancy?</h5>
+            <p>Use the query form in the dashboard to report any discrepancies. Include the date and subject details.</p>
+            </div>
+            <div class="faq-item">
+            <h5>What is the minimum attendance requirement?</h5>
+            <p>A minimum of 75% attendance is required in each subject to be eligible for examinations.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+</main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
